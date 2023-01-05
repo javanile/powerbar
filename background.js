@@ -31,16 +31,3 @@ chrome.runtime.onInstalled.addListener(async () => {
     console.log(`Created tab ${tab.id}`);
 });
 
-chrome.bookmarks.getTree((nodes) => {
-    let bookmarkBar;
-    for (let i in nodes) {
-        bookmarkBar = nodes[i];
-        break;
-    }
-    chrome.bookmarks.create(
-        {'parentId': bookmarkBar.id, 'title': '222Extension bookmarks', 'url': 'https://google.com'},
-        function(newFolder) {
-            console.log("added folder: ", newFolder);
-        },
-    );
-});
